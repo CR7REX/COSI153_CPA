@@ -8,6 +8,8 @@ import { Entypo, FontAwesome } from '@expo/vector-icons'
 import TechScreen from './screens/TechScreen'
 import SportScreen from './screens/SportScreen'
 import BusinessScreen from './screens/BusinessScreen'
+import ScienceScreen from './screens/ScienceScreen'
+import HealthScreen from './screens/HealthScreen'
 
 const Tab = createBottomTabNavigator()
 export default function App() {
@@ -30,7 +32,7 @@ export default function App() {
           component={TechScreen}
           options={{
             tabBarIcon: () => (
-              <FontAwesome name="laptop" size={24} color="black" />
+              <FontAwesome name="gamepad" size={20} color="black" />
             ),
           }}
         />
@@ -39,7 +41,7 @@ export default function App() {
           component={SportScreen}
           options={{
             tabBarIcon: () => (
-              <FontAwesome name="futbol-o" size={24} color="black" />
+              <FontAwesome name="futbol-o" size={20} color="black" />
             ),
           }}
         />
@@ -48,7 +50,25 @@ export default function App() {
           component={BusinessScreen}
           options={{
             tabBarIcon: () => (
-              <FontAwesome name="usd" size={24} color="black" />
+              <FontAwesome name="suitcase" size={20} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Science"
+          component={ScienceScreen}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="flask" size={20} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Health"
+          component={HealthScreen}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="heart" size={20} color="black" />
             ),
           }}
         />
@@ -57,7 +77,7 @@ export default function App() {
           component={SearchScreen}
           options={{
             tabBarIcon: () => (
-              <FontAwesome name="search" size={24} color="black" />
+              <FontAwesome name="search" size={20} color="black" />
             ),
           }}
         />
