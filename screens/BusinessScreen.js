@@ -1,21 +1,17 @@
-import react, { useState } from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
-import SearchBar from '../components/SearchBar'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { View, StyleSheet, Text, SafeAreaView, FlatList } from 'react-native'
 import Article from '../components/Article'
+import axios from 'axios'
 
-const SearchScreen = () => {
-  const [searchText, setSearchText] = useState('')
+const BusinessScreen = () => {
   const [articles, setArticles] = useState([])
-
-  const searchArticles = () => {
+  const getNews = () => {
     axios
       .get(
         'https://newsapi.org/v2/top-headlines?country=us&apiKey=c1ef3317ba2e48c8aeab23ad33adb6e9',
         {
           params: {
-            category: 'general',
-            q: searchText,
+            category: 'business',
           },
         }
       )
@@ -31,13 +27,13 @@ const SearchScreen = () => {
         // always executed
       })
   }
+
+  useEffect(() => {
+    getNews()
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <SearchBar
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onSubmit={searchArticles}
-      />
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={articles}
         renderItem={({ item }) => (
@@ -48,15 +44,16 @@ const SearchScreen = () => {
             author={item.author}
             publishedAt={item.publishedAt}
             sourceName={item.source.name}
+            url={item.url}
           />
         )}
         keyExtractor={(item) => item.title}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 
-export default SearchScreen
+export default BusinessScreen
 
 const styles = StyleSheet.create({
   container: {
