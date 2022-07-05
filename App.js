@@ -5,6 +5,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import SearchScreen from './screens/SearchScreen'
 import { Entypo, FontAwesome } from '@expo/vector-icons'
+import TechScreen from './screens/TechScreen'
+import SportScreen from './screens/SportScreen'
+import BusinessScreen from './screens/BusinessScreen'
 
 const Tab = createBottomTabNavigator()
 export default function App() {
@@ -20,6 +23,33 @@ export default function App() {
           component={HomeScreen}
           options={{
             tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+          }}
+        />
+        <Tab.Screen
+          name="Tech"
+          component={TechScreen}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="laptop" size={24} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Sports"
+          component={SportScreen}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="futbol-o" size={24} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Business"
+          component={BusinessScreen}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="usd" size={24} color="black" />
+            ),
           }}
         />
         <Tab.Screen
