@@ -11,7 +11,7 @@ const SearchScreen = () => {
   const searchArticles = () => {
     axios
       .get(
-        'https://newsapi.org/v2/top-headlines?country=us&apiKey=c1ef3317ba2e48c8aeab23ad33adb6e9',
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=1f46fa2db34245e5b034a2971796e443',
         {
           params: {
             q: searchText,
